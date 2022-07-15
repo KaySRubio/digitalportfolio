@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Rubio Portfolio</title>
+
+<!-- meta -->
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="description" content="Software Engineering Digital Portfolio"/>
+    	<meta http-equiv="author" content="K Rubio" />
+
+<!-- links to js and css -->
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  	</head>
+  	<body>
+  		<div id="row1">
+        <div id="logo">
+          <div id="logo2">
+            <img src="images/logo.png" alt="Kay Rubio" title="Kay Rubio" />
+          </div>
+        </div>
+
+          <div id="menu">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+              <a href="home.html" id="portfolio_dropdown" class="current_location">Portfolio</a>
+              <div class="dropdown-content">
+                <a href="oop.html">Object-Oriented Programming</a>
+                <a href="sql.html" class="current_location2">SQL & Relational Databases</a>
+                <a href="js_html_css.html">Front-End Web Development</a>
+                <a href="edc.html">Database Programming</a>
+                <a href="soft.html">Soft Skills</a>
+              </div>
+            </div>
+            <a href="home.html#about_row">About</a>
+            <a href="home.html#bottom">Contact</a>
+          </div>
+
+          <div id="dropdown_phone">
+            <img class="show_on_phone" src="images/menu_button.png">
+          </div>
+          <div id="dropdown-content_phone" class="hidden">
+            <a href="home.html">Home</a>
+            <a href="oop.html">Object-Oriented Programming</a>
+            <a href="sql.html" class="current_location_phone">SQL & Relational Databases</a>
+            <a href="js_html_css.html">Front-End Web Development</a>
+            <a href="edc.html">Database Programming</a>
+            <a href="soft.html">Soft Skills</a>
+            <a href="home.html#about_row">About</a>
+            <a href="home.html#bottom">Contact</a>
+          </div>
+
+  		</div>
+  		
+  		<h2 class="pp_h2">SQL, SAS</h2>
+  		<p class="pp_p">Examples of programs I have written to analyze data in relational databases <br><br></p>
+  
+          <div class="project_box2">
+            <div id="left_box">
+                <img src="images/bottle2.png" alt="A medication bottle and pill" title="Medication Bottle"/>
+                <p>A program that estimates drug supply needs for a clinical medication trial by calculating each subject's next refill date and aggregating refills needed by site.</p>
+                <p><b>Skills Demonstrated</b></p>
+                <ul>
+                  <li>Aggregate calculations by group</li>
+                  <li>SQL full and left joins (merge columns)</li>
+                  <li>Storing values in variables to be used in loops</li>
+                  <li>Storing column names in an array, then looping</li>
+                  <li>Conditional if/else logic to populate new columns</li>
+                </ul>
+                <p class="center"><b>Click to view details below for example 1</b></p>
+              </div>
+          </div>
+          <div class="project_box2">
+            <div id="right_box">
+              <img src="images/data2.png" alt="Several data tables" title="Data Tables"/>
+              <p>A program that generates a drug accountability report by transforming data format, joining tables, and using the previous month's report to track errors over time.</p>
+              <p><b>Skills Demonstrated</b></p>
+              <ul>
+                <li>Transforming data format from wide to long</li>
+                <li>Using loops to split a dataset into multiple datasets</li>
+                <li>SQL union all (stack rows)</li>
+                <li>SQL join on primary and foreign keys</li>
+                <li>Conditional logic to select certain rows </li>
+              </ul>
+              <p class="center"><b>Click to view details below for example 2</b></p>
+            </div>
+          </div>
+
+    <div class="white_background">
+      <h2>Technical Details</h2>
+      <h3 id="direction3">Click on boxes above to view each example</h3>
+      <div id="sqlexample1">
+        <h3>Example 1</h3>
+        <div class="pp_col1of2">
+           <h4>Challenge:</h4>
+            <p>Create a program to help manage drug supply in an ongoing clinical research study. Active subjects can receive anywhere between 1 to 4 bottles per dispense and each bottle lasts 30 days. Supply is running low...</p>
+           <p>Find out exactly how many bottles should be shipped to each site in the coming weeks to satisfy subject refill needs.</p>
+        </div>
+        <div class="pp_col1of2">        
+          <h4>Solution:</h4>
+          <p>I coded a program that checks the number of bottles that each subject received at their most recent dispense, then calculates their next refill date.</p>
+          <p>The program aggregates the number of bottles needed per site for refills due in the next 2 weeks, 4 weeks, and 6 weeks.  Finally, the program compares the number of bottles needed with the number of bottles available at each site's pharmacy.</p>
+        </div>
+        
+          <h5>Step 1. I examined the data structures of the input datasets.</h5>
+        <div class="pp_col1of2">
+          <p><b>1a.</b> The Drug Location table contains a list of bottles, their status, and the site.</p>
+          <figure><img id="sql1a" src="images/example1_1a_2.png" alt="A data table" title="A data table"/><figcaption>First 6 rows of the drug location table</figcaption></figure>
+        </div>
+        <div class="pp_col1of2">
+          <p><b>1b.</b> The Dispense table contains a list of every dispense date per subject, the repeating page number of the Dispense Form in the database, and how many bottles were dispensed on that date.</p>
+          <figure><img id="sql1b" src="images/example1_1b_2.png" alt="A data table" title="A data table"/><figcaption>First 6 rows of the dispense table</figcaption></figure>
+        </div>
+        <h5>Step 2. I checked the number of bottles at each site.</h5>
+        <div class="pp_col1of2">
+          <p>I filtered the Drug Location table with a where statement to select only bottles at-site (status of 5).  Then I used an aggregate count to calculate the number of bottles by site.</p>
+          <p class="code">*Filter for only bottles at the site;<br>
+          data work.drug_location;<br>
+          set work.drug_location;<br>
+          where statusid = 5;<br>
+          run;<br><br>
+          *Count the number of bottles at the site and aggregate by site;<br>
+          proc sql;<br>
+          create table work.Drug_at_site as<br>
+          select site,<br>
+          (COUNT(statusid)) as 'Num at site'n<br>
+          from work.drug_location<br>
+          group by site;<br>
+          RUN;</p>
+        </div>
+        <div class="pp_col1of2">
+          <figure><img id="sql2" src="images/example1_2.png" alt="A data table" title="A data table"/><figcaption>First 10 rows of the table showing number of bottles at each site</figcaption></figure>
+        </div>
+          <h5>Step 3. I found the most recent dispense date for each subject and the number dispensed on that date.</h5>
+         
+        <div class="pp_col1of2">
+          <p><b>3a.</b> I selected the maximum number of dispenses that any subject had and stored that value in a variable.  This value would help with the next steps. </p>
+          <p class="code">
+          proc sql print;<br>
+            select max(pageseq)<br>
+            into :max_dispense<br>
+            from work.dispense1;<br>
+            quit;<br><br>
+
+          *Get rid of extra spaces by moving the value into a different macro so that it will function inside loops;<br>
+            %let max_dispenso = &max_dispense;<br>
+
+          </p>
+        </div>
+        <div class="pp_col1of2">
+        </div>
+        <div class="pp_col1of1">
+            <p class="full_screen"><b>3b.</b> I transposed the data from long format (where each dispense date is in its own row, and subjects have many rows) to wide format (where each dispense date is in its own column and there is only 1 row per subject).</p>
+            <p class="code">PROC transpose data=work.dispense1 out=dispense_dates prefix=DISPENSE_D;<br>
+            by Subject;<br>
+            id pageseq;<br>
+            VAR 'Dispense Date'n;<br>
+            RUN;<br>
+            </p>
+            <figure><img id="sql3" src="images/example1_3.png" alt="A data table" title="A data table"/><figcaption>First 6 rows and first 11 columns of the table showing dispense dates transformed to wide format</figcaption></figure>
+        </div>
+        <div class="pp_col1of2">
+          <p><b>3c.</b> I created an array from the dispense date columns, and ran a loop through the columns to identify the most recent dispense date. The most recent dispense date was placed in a new column and formatted as a date.</p>
+          <p class="code">
+            data work.dispense_dates2;<br>
+            set work.dispense_dates;<br>
+            Array dispense_d dispense_d1-dispense_d&max_dispenso;<br>
+            array l{1};<br>
+            do i=1 to dim(l);<br>
+            l[i] = largest(i,of dispense_d(*));<br>
+            end;<br>
+            format l1 date9.;<br>
+            rename l1 = 'Most Recent Dispense'n;<br>
+            run;<br><br>
+
+            data work.dispense_dates2;<br>
+            set work.dispense_dates2;<br>
+            keep Subject 'Most Recent Dispense'n;<br>
+            run;
+          </p>
+        </div>
+        <div class="pp_col1of2">
+          <figure><img id="sql3c" src="images/example1_3c.png" alt="A data table" title="A data table"/><figcaption>First 20 rows of table showing each subject's most recent dispense date</figcaption></figure>
+        </div>
+        <h5>Step 4. I joined the number of bottles dispensed back into the table showing the most recent dispense date for each subject.</h5>
+        <div class="pp_col1of2">
+          <p>I used a left join to combine columns from both tables by matching them on the combined primary key of subject ID and dispense date.</p>
+          <p class="code">
+          proc sql;<br>
+          create table work.dispense2 as<br>
+          select<br>
+          t2.Site,<br>
+          t1.Subject,<br>
+          t1.'Most recent dispense'n,<br>
+          t2.'Number Dispensed'n<br>
+
+          from work.dispense_dates2 t1<br>
+          left join work.dispense1 t2 on (t1.subject = t2.subject) and (t1.'Most recent dispense'n = t2.'Dispense Date'n);
+          quit;<br>
+          </p>
+          <p class="note">Note: I use a left join here because I needed all the rows from the first table (which lists only the most recent dispense date), but only some of the rows from the second table (which lists all subject's dispenses).
+          </p>
+        </div>
+        <div class="pp_col1of2">
+          <figure><img id="sql4" src="images/example1_4.png" alt="A data table" title="A data table"/><figcaption>First 20 rows of the table showing each subject's most recent dispense date, number dispensed on that date, and repeating page number for the dispense date</figcaption></figure>
+        </div>
+        <h5>Step 5. I calculated the next refill date for each subject.</h5>
+        <div class="pp_col1of2">
+          <p>Since each bottle lasts 30 days, the subjects next refill date is their most recent dispense date + the number of bottles dispensed at that time * 30.  I put this number in a new column in the table.</p>
+          <p class="code">
+            data work.dispense2;<br>
+            set work.dispense2;<br>
+            'Next refill'n = 'Most recent dispense'n + 'Number Dispensed'n * 30;
+            format 'Next refill'n date9.;<br>
+            run;</p>
+        </div>
+        <div class="pp_col1of2">
+          <figure><img id="sql5" src="images/example1_5.png" alt="A data table" title="A data table"/><figcaption>First 10 rows of the table showing each subject's next refill date</figcaption></figure>
+        </div>
+        <h5>Step 6. I calculated the number of bottles needed for refill in the coming weeks for each subject.</h5>
+        <div class="pp_col1of1">
+          <p>I created variables that indicate the number of bottles needed for refill in the next 2 weeks, 4 weeks, or 6 weeks. To do this, I used conditional if/else if statements that compared today's date with the date of their next refill. The calculation also assumes subject's will receive a maximum 4 bottles at their next refill.</p>
+          <p class="code">
+            data work.dispense2;<br>
+            set work.dispense2;<br>
+            if today() + 7*2 > 'Next Refill'n then 'Btls Needed in 2 Wks'n = 4;<br>
+            else if today() + 7*4 > 'Next Refill'n then 'Btls Needed in 4 Wks'n = 4;<br>
+            else if today() + 7*6 > 'Next Refill'n then 'Btls Needed in 6 Wks'n = 4;<br>
+            RUN;
+          </p>
+          <figure><img id="sql6" src="images/example1_6.png" alt="A data table" title="A data table"/><figcaption>First 10 rows of the table showing bottles needed in the coming weeks</figcaption></figure>
+        </div>
+        <h5>Step 7. I aggregate the number of bottles needed in the coming weeks by site.</h5>
+        <div class="pp_col1of2">
+          <p>I used an aggregate sum to add up the number of bottles needed in 2 weeks, 4 weeks, and 6 weeks for all subjects at each site.</p>
+          <p class="code">
+            proc sql;<br>
+            create table work.site_bottle_needs as<br>
+            select Site,<br>
+            (SUM('Btls Needed in 2 Wks'n)) as 'Btls Needed in 2 Wks'n,<br>
+            (SUM('Btls Needed in 4 Wks'n)) as 'Btls Needed in 4 Wks'n,<br>
+            (SUM('Btls Needed in 6 Wks'n)) as 'Btls Needed in 6 Wks'n<br>
+            from work.dispense2<br>
+            Group by Site;<br>
+            run;
+          </p>
+        </div>
+        <div class="pp_col1of2">
+          <figure><img id="sql7" src="images/example1_7.png" alt="A data table" title="A data table"/><figcaption>First 10 rows of the table showing the number of bottles needed by site in the next several weeks</figcaption></figure>
+        </div>
+        <h5>Step 8. I compared the number of bottles needed with the number of bottles available.</h5>
+        <div class="pp_col1of2">
+          <p>Using a full join on the primary key of site number, I merged columns from the table showing estimated site refill needs with the table showing the number of bottles already at sites.</p>
+          <p class="code">
+            proc sql;<br>
+            create table work.site_bottle_needs2 as<br>
+            select<br>
+              t1.*,<br>
+              t2.'Num at site'n<br>
+            from work.site_bottle_needs t1<br>
+            full join work.drug_at_site t2 on t1.site = t2.site;<br>
+            quit;
+          </p>
+        </div>
+        <div class="pp_col1of2">
+          <figure><img id="sql8" src="images/example1_8.png" alt="A data table" title="A data table"/><figcaption>First 10 rows of the table comparing bottles needed with bottles at the site</figcaption></figure>
+        </div>
+        <h5>Step 9. I created a column for the number of bottles that should be included in priority shipments.</h5>
+        <div class="pp_col1of1">
+          <p>I created a column listing the number of bottles needed in shipments ASAP for each site by subtracting the number of bottles needed for refills in the next 2 weeks from the number of bottles at the site.</p>
+          <p class="code">
+            *Check which sites need a shipment ASAP and how many bottles;<br>
+            data work.site_bottle_needs2;<br>
+            set work.site_bottle_needs2;<br>
+            if 'Btls Needed in 2 Wks'n > 'Num at site'n then 'Shipment ASAP'n = 'Btls Needed in 2 Wks'n - 'Num at site'n;<br>
+            run;
+          </p>
+          <figure><img id="sql9" src="images/example1_9.png" alt="A data table" title="A data table"/><figcaption>First 10 rows of the table showing what sites need a shipment of bottles ASAP and how many should be included</figcaption></figure>
+        </div>
+      </div>
+
+
+     <div id="sqlexample2">
+        <h3>Example 2</h3>
+        <div class="pp_col1of2">
+          <h4>Challenge:</h4>
+            <p>400 subjects will receive over 10,000 bottles of drug in a clinical trial. Create a monthly report showing if all bottles dispensed match a bottle on a list of used drug returned to the sites.</p>
+            <p>Identify where dispensed bottles weren't returned, or bottles were returned by the wrong subject. Each monthly report should indicate the date the discrepancy was first identified so old discrepancies won't be re-queried.</p>
+        </div>
+        <div class="pp_col1of2">        
+          <h4>Solution:</h4>
+          <p>I coded a program that transposed the datasets into long format with only 1 bottle per row, then joined the tables on bottle ID and subject ID. The program then filtered for discrepancies, and created specific error messages.</p>
+        </div>
+        <h5>Step 1. I stored the dates of today's report and the previous month's report.</h5>
+        <div class="pp_col1of1">
+          <p>I stored these dates in macro variables because at the end of the program, I compare this month's report to the previous month's report.  These dates are at the top since they will be updated each time the program is run.  They should match the exact folder names where monthly reports are stored in dated subfolders so the previous report can be pulled automatically by the program.</p>
+          <p class="code">
+            %let date = 2021.08.18;<br>
+            %let prevdate = 2021.07.10;
+          </p>
+        </div>
+        <h5>Step 2. I analyzed the data structure of each input dataset.</h5>
+        <div class="pp_col1of1">
+          <p><b>2a.</b> The dispensed bottle table has one bottle per row. Columns include the Bottle ID and the Subject ID.</p>
+          <figure><img id="sql2_2a" src="images/example2_2a.png" alt="A data table" title="A data table"/><figcaption>First 6 rows of the dispense table</figcaption></figure>
+          <p><b>2b.</b> In the database, research personnel can enter up to 7 bottles on each Drug Accountability Log case report form (CRF), and the CRF is repeating so each subject has one or more Drug Accountability Log CRFs. This leads to an unusual data format with one row for each Drug Accountability CRF containing up to 7 bottle IDs in columns.  The same subject can also have multiple rows.  The primary key in this table is a combination of the subject ID (SUBNUM) and the repeating page number is indicated by the variable Bottle Log Number.  </p>
+          <figure><img id="sql2_2b" src="images/example2_2b.png" alt="A data table" title="A data table"/><figcaption>First 6 rows of the drug accountability table</figcaption></figure>
+        </div>
+        <h5>Step 3. I transformed the drug accountability table to having only one bottle per row.</h5>
+        <div class="pp_col1of1">
+          <p><b>3a.</b> Because the same subject can have multiple rows in the table, an SQL transpose statement will not run. Instead, I used a macro function with a loop to separate out each bottle ID column into a separate table.</p>
+        </div>
+        <div class="pp_col1of3">
+          <p class="code">
+            %Macro bottle_logs(first,last);<br>
+            %DO i = &first %to &last;<br>
+            data work.bottle_log_&i;<br>
+            set work.bl;<br>
+            keep subnum 'Bottle Log Number'n id_&i;<br>
+            rename id_&i = id;<br>
+            where id_&i ne "";<br>
+            run;<br>
+            %end;<br>
+            run;<br>
+            %mend bottle_logs;<br>
+
+            *calling the function for bottle id's 1 through 7;<br>
+            %bottle_logs(1,7);<br>
+          </p>
+        </div>
+        <div class="pp_col66percent">
+        <div class="pp_col1of7">
+          <figure><img class="sql2_3a" src="images/example2_3a_1.png" alt="A data table" title="A data table"/><figcaption>First 6 rows of BOTTLE_LOG_1</figcaption></figure>
+        </div>
+        <div class="pp_col1of7">
+          <figure><img class="sql2_3a" src="images/example2_3a_2.png" alt="A data table" title="A data table"/><figcaption>First 6 rows of BOTTLE_LOG_2</figcaption></figure>
+        </div>
+        <div class="pp_col1of7">
+          <figure><img class="sql2_3a" src="images/example2_3a_3.png" alt="A data table" title="A data table"/><figcaption>First 6 rows of BOTTLE_LOG_3</figcaption></figure>
+        </div>
+        <div class="pp_col1of7">
+          <figure><img class="sql2_3a" src="images/example2_3a_4.png" alt="A data table" title="A data table"/><figcaption>First 6 rows of BOTTLE_LOG_4</figcaption></figure>
+        </div>
+        <div class="pp_col1of7">
+          <figure><img class="sql2_3a" src="images/example2_3a_5.png" alt="A data table" title="A data table"/><figcaption>First 6 rows of BOTTLE_LOG_5</figcaption></figure>
+        </div>
+        <div class="pp_col1of7">
+          <figure><img class="sql2_3a" src="images/example2_3a_6.png" alt="A data table" title="A data table"/><figcaption>First 6 rows of  BOTTLE_LOG_6</figcaption></figure>
+        </div>
+        <div class="pp_col1of7">
+          <figure><img class="sql2_3a" src="images/example2_3a_7.png" alt="A data table" title="A data table"/><figcaption>First 6 rows of BOTTLE_LOG_7</figcaption></figure>
+        </div>
+      </div>
+      
+      <div class="pp_col1of1">
+        <p><b>3b.</b> Then I combined them by stacking the rows on top of each other using a union all SQL statement to create a single table listing one bottle per row.  The table now has a primary key of bottle ID.</p>
+      </div>
+      <div class="pp_col1of2">
+          <p class="code">
+            *Union all the bottle tables on top of one another, for bottles 1 - 7;<br>
+            proc sql;<br>
+            create table work.bottles_returned AS<br>
+            select * from work.bottle_log_1<br>
+            UNION ALL<br>
+            select * from work.bottle_log_2<br>
+            UNION ALL<br>
+            select * from work.bottle_log_3<br>
+            UNION ALL<br>
+            select * from work.bottle_log_4<br>
+            UNION ALL<br>
+            select * from work.bottle_log_5<br>
+            UNION ALL<br>
+            select * from work.bottle_log_6<br>
+            UNION ALL<br>
+            select * from work.bottle_log_7;<br>
+            run;
+          </p>
+      </div>
+      <div class="pp_col1of2">
+        <figure><img id="sql2_3b" src="images/example2_3b.png" alt="A data table" title="A data table"/><figcaption>First 20 rows of the table showing only 1 bottle per row</figcaption></figure>
+      </div>
+      <h5>Step 4. Now that both tables (bottles dispensed and bottles returned) have only 1 bottle per row, I merged the columns from both tables.</h5>
+      <div class="pp_col1of2">
+        <p>I used a SQL full join statement using the primary key of bottle ID as well as a foreign key of subject ID. I joined on both keys because I need to identify situations where Subject A was dispensed bottle X, but Subject B returned bottle X to the site.</p>
+        <p class="code">
+          proc sql;<br>
+          create table work.dispensed_returned as<br>
+          select<br>
+          t1.subnum as Dispensed_Subnum,<br>
+          t1.identifier as Dispensed_Bottle,<br>
+          t2.subnum as Returned_Subnum,<br>
+          t2.id as Returned_Bottle,<br>
+          t2.'Bottle Log Number'n<br>
+          from work.dat_disp t1<br>
+          full join work.bottles_returned t2 on t1.subnum = t2.subnum and t1.identifier = t2.id;<br>
+          run;
+        </p>
+      </div>
+      <div class="pp_col1of2">
+        <figure><img id="sql2_4" src="images/example2_4.png" alt="A data table" title="A data table"/><figcaption>Selected 20 rows of the table showing bottles dispensed and bottles returned joined on both bottle ID and subject ID</figcaption></figure>
+      </div>
+      <h5>Step 5. I created error messages using conditional if/else statements to populate a text variable.</h5>
+      <div class="pp_col1of1">
+        <p class="code">
+          *Create error messages for the two types of errors;<br>
+          data work.dispensed_returned;<br>
+          set work.dispensed_returned;<br>
+          length Error $250;<br>
+          if Dispensed_Subnum = "" and Returned_Bottle ne "" 
+            then Error = "Returned Bottle ID reported here does not match any of the bottles dispensed to this subject. Please correct or explain";<br>
+          else if Dispensed_Subnum ne "" and Returned_Bottle = "" 
+            then Error = "This bottle was dispensed to this subject but is missing from the Drug Accountability Log. Please update date or explain.";<br>
+          run;
+        </p>
+      </div>
+
+      <h5>Step 6. I filtered to show only the errors using a conditional selection where statement.</h5>
+      <div class="pp_col1of2">
+        <p class="code">
+          *Filter down to just the errors and simplify the variables;<br>
+          data work.dispensed_returned_errors;<br>
+          set work.dispensed_returned;<br>
+          if Dispensed_Subnum ne "" then Subnum = Dispensed_Subnum; else Subnum = Returned_Subnum;<br>
+          if Dispensed_Bottle ne "" then Bottle = Dispensed_Bottle; else Bottle = Returned_Bottle;<br>
+          where error ne "";<br>
+          run;<br>
+          <br>
+          data work.dispensed_returned_errors;<br>
+          Retain Subnum Bottle 'Bottle Log Number'n Error;<br>
+          set work.dispensed_returned_errors;<br>
+          drop Dispensed_Subnum Returned_Subnum Dispensed_Bottle Returned_Bottle;<br>
+          run;
+        </p>
+      </div>
+      <div class="pp_col1of2">
+        <figure><img id="sql2_6" src="images/example2_6.png" alt="A data table" title="A data table"/><figcaption>Selected 20 rows of the table showing error messages where bottles dispensed are not matched with bottles returned on bottle ID and subject ID</figcaption></figure>
+      </div>
+      <h5>Step 7. I merged in dates from previous month's reports if the error existed in the past.</h5>
+      <div class="pp_col1of1">
+        <p>To ensure my team does not query the same long-standing errors month after month, I checked to see if the error was identified in the previous month's report.  If the same error already exists in previous month's report, and I included the date it was identified from the last month's report using a left join.</p>
+        <p class="code">
+          /*Run this code if this is the first time the program is been run;<br>
+          data work.drugacct2;<br>
+          set work.drugacct1;<br>
+          'Date Identified'n = "&date";<br>
+          drop id1;<br>
+          run;<br>
+          */<br>
+          <br>
+          *Run this code if this is the second or further time the program has been run;<br>
+          proc sql;<br>
+          create table work.drugacct2 as<br>
+          select <br>
+          t1.*,<br>
+          t2.'Date Identified'n<br>
+          from work.dispensed_returned_errors t1<br>
+          left join [pathway to the folder holding monthly reports]/&prevdate/.sas7bdat" t2 
+          on t1.Bottle = t2.Bottle and t1.Subnum = t2.Subnum;<br>
+          quit;<br>
+        </p>
+        <p class="note">Note: I used a left join here to include all rows from this month's report (t1), but not include rows that existed in last month's report but don't exist anymore.  This way, I left out errors that were already corrected. 
+        </p>
+      </div>
+      <h5>Step 8. If the error wasn't identified in the previous month's report, I marked it with today's date. Then I exported the report.</h5>
+      <div class="pp_col1of2">
+        <p class="code">
+          data work.drugacct2;<br>
+          set work.drugacct2;<br>
+          if 'Date Identified'n = "" then 'Date Identified'n = "&date";<br>
+          run;<br><br>
+          *Export this month's report data as a SAS file in the folder by date so your program can easily access it next month;<br>
+          data [pathway to the folder holding monthly reports]/&date/drugacct";<br>
+          set work.drugacct2;<br>
+          run;<br>
+        </p>
+      </div>
+      <div class="pp_col1of2">
+        <figure><img id="sql2_8" src="images/example2_8.png" alt="A data table" title="A data table"/><figcaption>Selected 20 rows of the table showing error messages where bottles dispensed are not matched with bottles returned and the date the discrepancy was identified</figcaption></figure>
+      </div>
+    </div>
+</div>
+
+      <h2 class="pp_h2">Other SQL Environments</h2>
+     
+
+      <div class="centered_blurb">
+        <p class="pp_p"><br>Although my recent SQL programming has been in SAS, which uses a combination of SQL and the SAS Programming language, I have also used more pure-SQL programs including <b>SQL Developer</b> in my Data Management course and <b>Microsoft Access</b> while I was a research coordinator at MGH.</p>
+      </div>
+
+      <div id="footer">
+          <p>Return to <a href="home.html">Home</a></p>  
+          <p>Software Engineering Digital Portfolio</p>
+          <p>&#169 2021 <a href="mailto:ksweeneyrubio@gmail.com">Kay Sweeney Rubio</p>
+      </div>
+  </body>
+</html>
+
+<script src="js/script.js"></script>
+<script src="js/script_sql.js"></script>
+      

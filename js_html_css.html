@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Rubio Portfolio</title>
+
+<!-- meta -->
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="description" content="Software Engineering Digital Portfolio"/>
+    	<meta http-equiv="author" content="K Rubio" />
+
+<!-- links to js and css -->
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  	</head>
+    
+  	<body>
+  		<div id="row1">
+        <div id="logo">
+          <div id="logo2">
+            <img src="images/logo.png" alt="Kay Rubio" title="Kay Rubio" />
+          </div>
+        </div>
+
+          <div id="menu">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+              <a href="home.html" id="portfolio_dropdown" class="current_location">Portfolio</a>
+              <div class="dropdown-content">
+                <a href="oop.html">Object-Oriented Programming</a>
+                <a href="sql.html">SQL & Relational Databases</a>
+                <a href="js_html_css.html" class="current_location2">Front-End Web Development</a>
+                <a href="edc.html">Database Programming</a>
+                <a href="soft.html">Soft Skills</a>
+              </div>
+            </div>
+            <a href="home.html#about_row">About</a>
+            <a href="home.html#bottom">Contact</a>
+          </div>
+
+          <div id="dropdown_phone">
+            <img class="show_on_phone" src="images/menu_button.png">
+          </div>
+          <div id="dropdown-content_phone" class="hidden">
+            <a href="home.html" class="current_location_phone">Home</a>
+            <a href="oop.html">Object-Oriented Programming</a>
+            <a href="sql.html">SQL & Relational Databases</a>
+            <a href="js_html_css.html">Front-End Web Development</a>
+            <a href="edc.html">Database Programming</a>
+            <a href="soft.html">Soft Skills</a>
+            <a href="home.html#about_row">About</a>
+            <a href="home.html#bottom">Contact</a>
+          </div>
+
+  		</div>
+
+  			<h2 class="pp_h2">JavaScript, HTML, CSS</h2>
+  			<p class="pp_p">Front-End Web Development Example</p>
+                <p class="github_link">View the source code on my <a href="https://github.com/KaySRubio/ChildrensMathTest.git" target="_blank">GitHub</a></p>
+      <div class="row2">
+        <div class="inner_row2">
+        <div class="inner_row3">
+        <div class="project_summary">
+          <p><b>Project Description</b></p>
+          <p>In a software engineering course, I coded a math homework page for children as part of a larger group project to design a tutoring program for kids grades K-4.<br></p>
+          <p><b><br>HTML/CSS Skills</b></p>
+                <ul>
+                  <li>Created unique page formats</li>
+                  <li>Coded a responsive design using media queries to format the page based on screen size</li>
+                </ul>
+        </div>
+      
+      <div class="project_summary">
+                <p><b>JavaScript Skills</b></p>
+                <ul>
+                  <li>Declared functions for page actions</li>
+                  <li>Selected DOM elements and updated their attributes to change the images and text</li>
+                  <li>Created event listeners to run functions in response to click events</li>
+                  <li>Declared arrays and variables to display the correct set of questions and images per grade, and keep track of student answers, and ensure each question is only answered once</li>
+                </ul>
+                <p class="center"><b><br>Click on the page embedded below to take the test</b></p>
+      </div>
+
+       <div class="project_summary">
+
+        <p><b>Using JavaScript, the page will:</b></p>
+        <ul>
+          <li>Keep track of your answers</li>
+          <li>Tell you right away if you got it right or not</li>
+          <li>Increase your candy peppermint rewards for each correct answer</li>
+          <li>Only let you answer each question once</li>
+          <li>Display your answers, and completed questions at the bottom</li>
+          <li>Let you submit once you are done</li>
+          <li>Show you your final grade at the end</li>
+          <li>Show a different message at the end depending on percent correct</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    </div>
+
+
+    <iframe id="iframe_wide" src="childrenHWproject/p-hw1oa.html"></iframe>
+    
+    <div class="white_background">
+      <h2>Technical Details</h2>
+      <h5 class="center">Program Flow</h5>
+      <div class="pp_col1of1">
+        <p><b>Step 1. Browser loads all unhidden HTML DOM elements</b></p>
+        <div class="pp_col1of1">
+          <p>Hidden elements have a class of "hidden" which will be removed by the JavaScript later on</p>
+        </div>
+        <p><b>Step 2. Declares variables.</b></p>
+        <p><b>Step 3. Set up event listeners.</b></p>
+        <div class="pp_col1of1">
+          <p>Event listeners wait for click events on multiple parts of the page including:</p>
+          <p>a. Grade-selection buttons</p>
+          <p>b. The next/back arrow that allows users to move through the questions with or without answering them</p>
+          <p>c. The answer options where users can select their answer to each question</p>
+        </div>
+        <p><b>Step 4. Call the displayRewards function.</b></p>
+        <div class="pp_col1of1">
+          <p>The displayRewards function updates the image at the top showing the number of candy rewards that the user has earned so far</p>
+        </div>
+        <p><b>Step 5. A user click event on the grade buttons calls the function getGrade() which does the following:</b></p>
+        <div class="pp_col1of1">
+          <p>a. Stores the grade selected by the user in the global variable called grade
+          <p>b. Calls function setQuestionsAnswers() which initializes the grade-dependent question and answer set</p>
+          <p>c. Displays the right image on the page for the grade and specific question</p>
+          <p>d. Sets the answer set for the specific question</p>
+          <p>e. Unhides the question and answer set, hides the grade selection div</p>
+          <p>f. Activates blinky directions on the question-answer set</p>
+          <p>g. Calls the function displayQuestion() which displays the right question on the page</p>
+        </div>
+        <p><b>Step 6. A user click event on an answer option calls the function processAnswer(option) which:</b></p>
+        </p>
+        <div class="pp_col1of1">
+          <p>a. Takes as an argument which option the user selected (e.g., option 1, 2 or 3)
+          <p>a. If this is the first time the user has selected an answer, the function removes the blinky directions on the answers and adds blinky directions to the arrows</p>
+          <p>b. If this is the first time the user is answering the question, the function processes the answer by:</p>
+          <p>c. Updating the panda image dependent upon if answer was correct or not</p>
+          <p>d. If correct, increment the number correct</p>
+          <p>e. If correct, call the displayReward() which uses a switch statement based on the numberCorrectOA variable to show the correct candy rewards picture</p>
+          <p>f. Update the progress bar at the bottom of the screen depending on if the answer was correct or not</p>
+          <p>g. Change the firstTry variable to false so they can't answer the same question twice</p>
+          <p>h. Increment the number answered and update the percentComplete shown on bottom of screen</p>
+          <p>j. Display the submit button if the user has answered all 10 questions, and set up an event listener on the submit button which will run the submit function</p>
+          <p></p>
+        </div>
+        <p><b>Step 7. A user click on a next/back arrow will call the functions nextQ() and previousQ()
+      which do the following:</b></p>
+        <div class="pp_col1of1">
+          <p>a. If this is the first time the user has clicked on the arrows, remove the blinky directions</p>
+          <p>b. Show alerts if there's no more questions</p>
+          <p>c. Update the question number variable</p>
+          <p>d. Display the correct question, question image, and answer options</p>
+          <p>e. Update the panda image to a neutral panda</p>
+        </div>
+        <p><b>Step 8. A user click on the submit buttom runs the submit() function which:</b></p>
+              <div class="pp_col1of1">
+          <p>a. Displays a feedback section telling the user the number they got correct</p>
+          <p>b. Displays a specific panda image depending on if they got 7+, 5+, or less than 5 answers correct</p>
+          <p>c. Updates their rewards</p>
+          <p>d. Creates an event listener so they can click to return to the home page</p>
+        </div>
+        <p><b>Step 9. A user click on anywhere with an event lister that runs the returnHome() function will re-start
+      homework</b></p>
+      </div>
+    </div>
+
+
+
+        
+
+        <div id="footer">
+          <p>Return to <a href="home.html">Home</a></p>          
+          <p>Software Engineering Digital Portfolio</p>
+          <p>&#169 2021 <a href="mailto:ksweeneyrubio@gmail.com">Kay Sweeney Rubio</p>
+        </div>
+  </body>
+</html>
+
+<script src="js/script.js"></script>

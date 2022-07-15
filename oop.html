@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Rubio Portfolio</title>
+
+<!-- meta -->
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="description" content="Software Engineering Digital Portfolio"/>
+    	<meta http-equiv="author" content="K Rubio" />
+
+<!-- links to js and css -->
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  	</head>
+  	<body>
+  		<div id="row1">
+  			<div id="logo">
+          <div id="logo2">
+            <img src="images/logo.png" alt="Kay Rubio" title="Kay Rubio" />
+          </div>
+  			</div>
+
+          <div id="menu">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+              <a href="home.html" id="portfolio_dropdown" class="current_location">Portfolio</a>
+              <div class="dropdown-content">
+                <a href="oop.html" class="current_location2">Object-Oriented Programming</a>
+                <a href="sql.html">SQL & Relational Databases</a>
+                <a href="js_html_css.html">Front-End Web Development</a>
+                <a href="edc.html">Database Programming</a>
+                <a href="soft.html">Soft Skills</a>
+              </div>
+            </div>
+            <a href="home.html#about_row">About</a>
+            <a href="home.html#bottom">Contact</a>
+          </div>
+
+          <div id="dropdown_phone">
+            <img class="show_on_phone" src="images/menu_button.png">
+          </div>
+          <div id="dropdown-content_phone" class="hidden">
+            <a href="home.html" class="current_location_phone">Home</a>
+            <a href="oop.html">Object-Oriented Programming</a>
+            <a href="sql.html">SQL & Relational Databases</a>
+            <a href="js_html_css.html">Front-End Web Development</a>
+            <a href="edc.html">Database Programming</a>
+            <a href="soft.html">Soft Skills</a>
+            <a href="home.html#about_row">About</a>
+            <a href="home.html#bottom">Contact</a>
+          </div>
+
+  		</div>
+
+  			<h2 class="pp_h2">Java</h2>
+  			<p class="pp_p">Object-Oriented Programming Example</p>
+        <p class="github_link">View the source code on my <a href="https://github.com/KaySRubio/RandomPredictiveText.git" target="_blank">GitHub</a></p>
+        <div class="row2">
+        <div class="inner_row2">
+        <div class="inner_row3">
+  			<div class="project_summary">
+          <p>As a computer science student, I have programmed in Java and C++. Here's an example of a Java Program I wrote.
+  				<p><b><br>Challenge:</b></p>
+  				<p>Code a program that analyzes a text file and produces new text randomly but in the style of the original text.</p>
+  				<br>
+  				<p><b>Potential Applications:<br></b></p>
+  				<ul>
+  					<li>Artificial Intelligence</li>
+  					<li>Predictive text suggestions in email or smart phones</li>
+  					<li>Syntax-error checking in compilers</li>
+  				</ul>
+  			</div>
+  		
+  		<div class="project_summary">
+  			<p><b>Solution:</b></p>
+  			<p>I coded a program that uses a two-dimensional linked list structure to generate Markov models from a text file.</p>
+  			<br>
+  			<p>To generate text that is random but in the style of the original text, the program randomly chooses a word, then randomly chooses another word that follows that word anywhere in the text.  Words that more frequently follow the first are more likely to be chosen.  Then, the program chooses another word that follows the second word, and so on.</p>
+  		</div>
+  		 <div class="project_summary">
+  			<p><b>Skills Demonstrated:</b></p>
+  			<ul>
+  				<li>Programmer-defined classes and methods</li>
+  				<li>Defining relationships between classes</li>
+  				<li>Complex data structures</li>
+  				<li>Handling exceptions</li>
+  				<li>Java library</li>
+  				<li>Regular expressions</li>
+  				<li>While/for loops</li>
+  				<li>Conditional if/else logic</li>
+  			</ul>
+  		</div>
+    </div>
+    </div>
+    </div>
+
+  		<div class="white_background">
+  			<p>Click below to see some random text generated from the following:</p>
+  			<div class="center_photos">
+            	<div id="center_photos1">
+            		<figure id="obama">
+                		<img id="obama" src="images/obama.jpg" alt="Barack Obama pic by Alex Wong/Getty Images" title="Barack Obama pic by Alex Wong/Getty Images" />
+               			<figcaption>Obama's <a href="https://obamawhitehouse.archives.gov/blog/2009/01/21/president-Barack-obamas-inaugural-address" target="_blank">Inauguration Speech</a></figcaption>
+            		</figure>
+            		<figure id="harry">
+                		<img id="harry" src="images/harrypotter.jpg" alt="Harry Potter" title="Harry Potter" />
+               			<figcaption><a href="https://www.bookbrowse.com/excerpts/index.cfm/book_number/452/page_number/1/harry-potter-and-the-sorcerers-stone#excerpt" target="_blank">Harry Potter and the Sorcerer's Stone</a></figcaption>
+                	</figure> 
+                	<figure id="koala">                  
+                		<img id="koala" src="images/koala.jpg" alt="Koala" title="Koala" />
+                		<figcaption>An article about <a href="https://animals.sandiegozoo.org/animals/koala" target="_blank">koalas</a></figcaption>
+                	</figure> 
+            	</div>
+        	</div>
+  		</div>
+
+      <div id="markov_text" class="white_background">
+        <h4 id="markov1">Select the Markov Model Order.  Higher orders are more similar to the original text, but less random.</h4>
+        <div id="order_buttons">
+        <div id="order_buttons2">
+          <button id="order1">Order 1</button>
+          <button id="order2">Order 2</button>
+          <button id="order3">Order 3</button>
+        </div>
+        </div>
+        <h4 id="markov_text_header"><br>Sample of predictive text generated:</h4>
+        <p id="markov_text_para">not have been served in a local restaurant can now stand before you to take a most sacred oath applause so let us mark this day with remembrance of who we are and how far we have traveled in the year of americas birth in the coldest of months a small band of patriots huddled by dying campfires on the shores of an icy river the capital was abandoned the enemy was advancing the snow was stained with blood at the moment when the outcome of our revolution was most in doubt the father of our nation we understand that</p>
+        <h4 id="js_not_working_msg">It appears that JavaScript is not working in your browser. To see other examples and other orders, please enable JavaScript.</h4>
+      </div>
+
+
+  		<h2 class="pp_h2">Technical Details</h2>
+  		<p class="pp_p">Classes and Programming Steps</p>
+  		<div id="half_screen" class="project_summary">
+  			<p><b>Steps the program follows:</b></p>
+  			<ol>
+  				<li>Obtain the filename from the user; catch any errors opening the file.</li>
+  				<li>Ask the user for the order of the Markov model</li>
+  				<li>Open the file, make all letters lowercase, remove all digits and symbols</li>
+  				<li>Initialize a KeyWordList</li>
+  				<li>Loop through the words in the file and initialize all unique words as a KeyWord objects</li>
+  				<li>Initialize each KeyWord's NextWordList</li>
+  				<li>Initialize words that follow the KeyWord anywhere in the file as NextWord objects in the NextWordList with frequencies</li>
+  				<li>Print the Markov Model for the user to view</li>
+  				<li>Ask the user how many words of random text they want the program to print</li>
+  				<li>Generate random text from the Markov Model</li>
+  			<ol>
+  		
+  		</div>
+
+  			<img id="uml" src="images/uml.png" alt="UML Diagram for two linked list classes" title="UML Diagram" />
+
+  		<div class="white_background">
+  			<h4>Markov Model Represented as a Two-Dimensional Linked List</h4>
+  			<p>
+  			<img class="full_screen_img" src="images/linkedlist2.png" alt="A diagram of a two-dimensional linked list data structure" title="Linked List" /></p>
+  		</div>
+
+  	
+  		<div class="white_pic">
+  			<h4>Higher Order Markov Models</h4>
+  			<div id = "markov_col1" class="threecolumnsonwhite">
+  				<p><b>A Markov model of order 1 uses a list of single words.</b></p>
+  				<p class="list">nearly:</p>
+  				<p class="list2">ten 1</p>
+				<p class="list2">said 1</p>
+				<p class="list2">crashed 1</p>
+				<p class="list2">bitten 1</p>
+  				<p class="list">ten:</p>			
+				<p class="list2">years 3</p>
+				<p class="list2">miserable 1</p>
+				<p class="list">years:</p>
+				<p class="list2">had 1</p>
+				<p class="list2">ago 1</p>
+				<p class="list2">since 1</p>
+				<p class="list2">ten 1</p>
+				<p class="list2">as 1</p>	
+				<p class="list">had:</p>
+				<p class="list2">passed 2</p>
+				<p class="list2">woken 1</p>
+				<p class="list2">hardly 1</p>
+				<p class="list2">been 12</p>
+				<p class="list2">seen 2</p>	
+
+  			</div>
+  			<div id = "markov_col2" class="threecolumnsonwhite">
+  				<p><b>Order 2 Markov Model words grouped in pairs.</b></p>
+				<p class="list">nearly ten:</p>
+				<p class="list2">years 1</p>
+				<p class="list">ten years:</p>
+				<p class="list2">had 1</p>
+				<p class="list2">ago 1</p>
+				<p class="list2">ten 1</p>
+				<p class="list">years had:</p>
+				<p class="list2">passed 1</p>
+				<p class="list">had passed:</p>
+				<p class="list2">since 1</p>
+				<p class="list2">ten 1</p>
+				<p class="list">passed since:</p>
+				<p class="list2">the 1</p>
+				<p class="list">since the:</p>
+				<p class="list2">dursleys 1</p>
+				<p class="list">the dursleys:</p>
+				<p class="list2">had 2</p>
+				<p class="list2">front 1</p>
+				<p class="list2">uncle 1</p>
+				<p class="list2">often 1</p>
+  			</div>
+  			<div id = "markov_col3" class="threecolumnsonwhite">
+  				<p><b>An Order 3 Markov Model words grouped in trios.</b></p>
+				<p class="list">nearly ten years:</p>
+				<p class="list2">had 1</p>
+				<p class="list">ten years had:</p>
+				<p class="list2">passed 1</p>
+				<p class="list">years had passed:</p>
+				<p class="list2">since 1</p>
+				<p class="list">had passed since:</p>
+				<p class="list2">the 1</p>
+				<p class="list">passed since the:</p>
+				<p class="list2">dursleys 1</p>
+				<p class="list">since the dursleys:</p>
+				<p class="list2">had 1</p>
+				<p class="list">the dursleys had:</p>
+				<p class="list2">woken 1</p>
+				<p class="list2">received 1</p>				
+				<p class="list">dursleys had woken:</p>
+				<p class="list2">up 1</p>
+				<p class="list">had woken up:</p>
+				<p class="list2">to 1</p>
+				<p class="list">woken up to:</p>
+  			</div>
+ 	
+  		</div>
+  		<div id="footer">
+          <p>Return to <a href="home.html">Home</a></p>        
+          <p>Software Engineering Digital Portfolio</p>
+          <p>&#169 2021 <a href="mailto:ksweeneyrubio@gmail.com">Kay Sweeney Rubio</p>
+      	</div>
+  </body>
+</html>
+
+<script src="js/script.js"></script>
+<script src="js/script_oop.js"></script>

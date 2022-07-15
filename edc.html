@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Rubio Portfolio</title>
+
+<!-- meta -->
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="description" content="Software Engineering Digital Portfolio"/>
+    	<meta http-equiv="author" content="K Rubio" />
+
+<!-- links to js and css -->
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  	</head>
+  	<body>
+  		<div id="row1">
+        <div id="logo">
+          <div id="logo2">
+            <img src="images/logo.png" alt="Kay Rubio" title="Kay Rubio" />
+          </div>
+        </div>
+          <div id="menu">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+              <a href="home.html" id="portfolio_dropdown" class="current_location">Portfolio</a>
+              <div class="dropdown-content">
+                <a href="oop.html">Object-Oriented Programming</a>
+                <a href="sql.html">SQL & Relational Databases</a>
+                <a href="js_html_css.html">Front-End Web Development</a>
+                <a href="edc.html" class="current_location2">Database Programming</a>
+                <a href="soft.html">Soft Skills</a>
+              </div>
+            </div>
+            <a href="home.html#about_row">About</a>
+            <a href="home.html#bottom">Contact</a>
+          </div>
+
+          <div id="dropdown_phone">
+            <img class="show_on_phone" src="images/menu_button.png">
+          </div>
+          <div id="dropdown-content_phone" class="hidden">
+            <a href="home.html" class="current_location_phone">Home</a>
+            <a href="oop.html">Object-Oriented Programming</a>
+            <a href="sql.html">SQL & Relational Databases</a>
+            <a href="js_html_css.html">Front-End Web Development</a>
+            <a href="edc.html">Database Programming</a>
+            <a href="soft.html">Soft Skills</a>
+            <a href="home.html#about_row">About</a>
+            <a href="home.html#bottom">Contact</a>
+          </div>
+  		</div>
+  			<h2 class="pp_h2">Clinical Database Programming</h2>
+  			<p class="pp_p">Front-End Solutions for Medical Care and Research</p>
+      <div class="row2">
+        <div class="inner_row2">
+        <div class="inner_row3">
+        <div class="project_summary">
+          <p><b>Overview</b></p>
+          <p>I program new databases, as well as mid-study updates to EDC systems for large multi-site clinical trials and observational studies.</p><p><br>I am a Certified <a href="https://www.ibm.com/products/clinical-development" target="_blank">IBM Clinical Development</a> Designer with added Inventory/Dispensing certification, and I also program databases in <a href="https://projectredcap.org/" target="_blank">REDCap</a> and <a href="https://www.redcapcloud.com/?gclid=CjwKCAjwj8eJBhA5EiwAg3z0m_0l7xPJodemLyjYquRW9qNfQ0HiW2y0iBj_2mWEh2bTc_e1HqtNiBoC7a0QAvD_BwE" target="_blank">REDCap Cloud</a>.</p>
+        </div>
+
+       <div class="project_summary">
+
+        <p><b>EDC system features I set up</b></p>
+        <ul>
+          <li>UAT (User Acceptance Testing)</li>
+          <li>Study drug shipment, tracking, dispense</li>
+          <li>Randomization, stratification, blinding</li>
+          <li>User role permissions</li>
+          <li>Recurring data exports</li>
+          <li>Source data verification</li>
+          <li>Medical Coding</li>
+          <li>Electronic signatures</li>
+        </ul>
+
+      </div>
+
+      <div class="project_summary">
+        <p><b>eCRF Design</b></p>
+        <ul>
+          <li>Data types</li>
+          <li>Page dynamics/trigger logic</li>
+          <li>Edit checks</li>
+          <li>Tables within forms</li>
+        </ul>
+        <p><b><br>Visit Structure Design</b></p>
+        <ul>
+          <li>Visit and form triggers</li>
+          <li>Repeating visits and forms</li>
+        </ul>
+
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="white_background">
+        <h3>Examples of EDC Problems I've Solved</h3>
+        <div class="pp_col1of2">
+          <h5 class="center">Repeating Forms with Repeating Rows</h5>
+          <p><i><br>Challenge</i></p>
+          <p>During EDC design for a longitudinal study, a sponsor requested that we create a medication CRF based on a paper form that listed 10 medications per form, and would be completed at each time point.  The form would be repeating since some participants could have dozens of medications.</p>
+          <p><i>Solution</i></p>
+          <p>Based on prior experience, I knew this would create a tricky exported data structure and unnecessary duplicate data for subjects who stay on the same medication across time points. I explained to the sponsor that it would be better to have a repeating medication form with one medication only inside a special "Medications" time point, rather including the medication form at each time point in the database.</p>
+          <p>This ensured that if participants stayed on the same medications throughout the study, the site wouldn't have to re-enter them at every time point, but could instead enter each medication once and then update start/stop dates over time.  It also would avoid a weird data structure that happens when there are repeating rows on a repeating forms.</p>
+          <p>For instance, if the form was designed to be repeating and include 10 medications per form as requested, participant A with 13 medications would have two different rows in the exported data.  Medications 1-10 would be in the columns of the first row, and medications 11-13 would be in the columns of the second row.</p>  
+          <p>This is hard for statisticians and data managers to analyze.  It's possible to use SQL re-format the data to a long format file, where participant A has 13 rows, one medication per row.  However, it's easier to set up the eCRF's in a way that automatically exports in that format, rather than having to transform the data later.</p>
+          <p>I provided some screenshots showing the proposed form setup to the sponsor, and they agreed that this structure would be easier for sites and easier for future data analysis.</p>
+          
+          <!--img id="edc_plant" src="images/plant_background10.jpg"/-->
+          
+        </div>
+        <div class="pp_col1of2">
+          <h5 class="center">Drug Dispensing Challenge</h5>
+          <p><i><br>Challenge</i></p>
+          <p>A ongoing medication trial had a change of supplier, and the bottles changed from 30 pills (lasting 15 days) to 60 pills (lasting 30 days).  The participants needed to re-consent to a protocol amendment before being allowed to take the new bottles. When sites request a dispense, the EDC assigns the bottle ID(s) to the participant.  The EDC needs to be "smart" enough to continue to assign the old bottles to participants who have not re-consented, and assign the new bottles to those who have.</p>
+          <p><i>Solution</i></p>
+          <p>I made a copy of the live database and uploaded the list of new bottle ID's as a new batch with the number of treatment days per bottle as 30 instead of 15. The EDC uses several logical factors to assigns the bottle ID(s) to certain participants.</p>
+          <p>The existing factors pertained to randomization assignment, consent at baseline, and number of bottles requested. In order to accommodate the new batch, I programmed new rules; if Re-Consent = False, the old batch will be dispensed.  If Re-Consent =True, the new batch would be dispensed.</p>
+          <p>To make sure it worked, checked it myself, and set up a UAT script so a colleague could perform formally documented UAT.  I also created slides to train sites about the new relationship between the Re-Consent page and the dispense features. Once UAT was complete and the PM approved the changes, I merged the changes into the live database.</p>
+        </div>
+        <div class="pp_col1of2">
+          <h5 class="center">Mid-Study Update Challenge</h5>
+          <p><i><br>Challenge</i></p>
+          <p>A co-worker was running into errors while trying to update her study's EDC system and asked me for help. Her project manager had requested that she delete certain variables that were no longer needed, and change the question text of other variables or codelists.</p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p><i>Solution</i></p>
+          <p>I explained that deleting variables can orphan existing data, and changing the question text away from the original question's essential medical meaning can render the existing data incorrect.</p>
+          <p>I re-trained her to hide the variables rather than deleting them, and create new variables instead of significantly changing the existing question or codelist text.</p>
+          <p> I also checked the exported data to see what had already been entered, and provided the PM with information how many data points would need to be re-done by the sites after the update.</p>
+        </div>
+
+    </div>
+
+        <div id="footer">
+          <p>Return to <a href="home.html">Home</a></p>
+          <p>Software Engineering Digital Portfolio</p>
+          <p>&#169 2021 <a href="mailto:ksweeneyrubio@gmail.com">Kay Sweeney Rubio</p>
+        </div>
+  </body>
+</html>
+<script src="js/script.js"></script>

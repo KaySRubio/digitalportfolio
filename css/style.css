@@ -501,9 +501,9 @@ td>ul>li {
 	padding: 30px 2% 50px 2%;
 }
 
-.white_background>p {
+.white_background>p, .white_background>p>a {
 	color: #0B0C10;
-	text-align: center;
+	/*text-align: center; */
 	width: 100%;
 }
 #sqlexample1>h3, #sqlexample2>h3, .white_background>h3 {
@@ -560,7 +560,7 @@ td>ul>li {
 	padding: 0px 2% 0px 2%;
 
 }
-.pp_col1of1>p {
+.pp_col1of1>p, .pp_col1of1>p>a {
 		color: #0B0C10;
 	line-height: 1.5em;
 }
@@ -740,9 +740,21 @@ td>ul>li {
 	margin-right: auto;
 }
 
-.white_background>h4, .white_pic>h4, .white_background>p {
+.full_screen_img2 {
+	width: 100%;
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.white_background>h4, .white_pic>h4 {
 	text-align: center;
 }
+
+
+
+
 
 /*Java OOP Markov Models Higher Order section ***************/
 

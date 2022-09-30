@@ -93,6 +93,7 @@ td, tr {
 	padding: 0px;
 	margin: 0px;
 	border-collapse: collapse;
+	/* border: 2px solid green; */
 }
 
 .center {

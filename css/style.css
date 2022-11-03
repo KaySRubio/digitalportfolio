@@ -470,6 +470,16 @@ td, tr {
 	width: 100%;
 }
 
+.resume>p {
+	color: #0d1016;
+	line-height: 1.5em;
+	margin: 0px;
+}
+
+.resume>h3 {
+	color: #333F57;
+}
+
 td {
 	padding: .5px 1px .5px 20px;
 	font-family: Arial, Verdana, sans-serif;
@@ -518,6 +528,7 @@ td>ul>li {
 	width: 46%;
 	padding: 0px 2% 0px 2%;
 	color: black;
+	
 }
 .pp_col1of2>h3 {
 	color: #333F57;

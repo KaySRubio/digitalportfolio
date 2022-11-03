@@ -470,14 +470,14 @@ td, tr {
 	width: 100%;
 }
 
-.resume>p {
-	color: #0d1016;
+.resume p {
+	color: #0d1016 !important;
 	line-height: 1.5em;
 	margin: 0px;
 }
 
-.resume>h3 {
-	color: #333F57;
+.resume h3 {
+	color: #333F57 !important;
 }
 
 td {
